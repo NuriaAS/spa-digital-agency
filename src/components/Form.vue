@@ -10,7 +10,11 @@
                   Want to discuss a project? Send us a message               
             </div>
       <v-flex xs12 sm12 md12>
-        <v-form v-model="valid">
+        <v-form v-model="valid" 
+        ref="form"
+        @submit="saveContactMessage"
+        method="post"
+        lazy-validation>
           <v-container>
             <v-row class="flex-column">
               <v-col cols="12" md="12">
@@ -47,26 +51,58 @@
 
               <v-col cols="12" md="12">
                 <v-text-field
-                  v-model="email"
-                  :rules="emailRules"
+                  v-model="message"
+                  :rules="messageRules"
                   label="Message"
                   required
                   filled
                 ></v-text-field>
               </v-col>
-              <v-btn class="mr-4" @click="submit"> submit </v-btn>
+              <v-btn class="mr-4" @click="saveContactMessage"> submit </v-btn>
             </v-row>
           </v-container>
         </v-form>
+        <p>Name is: {{ firstname }}</p>
+        <pre>{{$data}}</pre>
       </v-flex>
     </v-layout>
   </v-container>
+  
 </template>
 
 <script>
     export default {
-    name: "Form",
-    };
+      name: "Form",
+      data: function () {
+        return {
+          firstname: null,
+          lastname: null,
+          email: null,
+          message: null,
+        }
+      },
+      methods: {
+        saveContactMessage: function (e) {
+          e.preventDefault()
+          const messagesRef = this.$firebaseDatabase.collection('message')
+          messagesRef.add(
+            {
+              firstname: this.firstname,
+              lastname: this.lastname,
+              email: this.email,
+              message: this.message,
+              time: new Date(),
+            },
+          )
+          this.firstname= ''
+          this.lastname= ''
+          this.email = ''
+          this.message = ''
+          this.submitted = true
+          this.snackbar = false
+        },
+      }
+    }
 </script>
     
 <style scoped>
