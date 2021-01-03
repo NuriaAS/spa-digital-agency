@@ -5,7 +5,7 @@
         </v-layout>
         <v-layout row wrap>
             <v-flex xs12 sm12 md4>
-                <v-card mx-auto >
+                <v-card mx-auto class="pa-4">
                      <v-icon black class="icon" style="font-size: 5rem" color="black" aria-hidden>mdi-laptop</v-icon>
                     <v-card-title primary-title>
                         <div>
@@ -18,7 +18,7 @@
             </v-flex>
 
             <v-flex xs12 sm12 md4>
-                <v-card mx-auto>
+                <v-card mx-auto class="pa-4">
                      <v-icon black class="icon" style="font-size: 5rem" color="black" aria-hidden>mdi-drawing</v-icon>
                     <v-card-title primary-title>
                         <div>
@@ -31,7 +31,7 @@
             </v-flex>
 
             <v-flex xs12 sm12 md4>
-                <v-card mx-auto>
+                <v-card mx-auto class="pa-4">
                      <v-icon black class="icon" style="font-size: 5rem" color="black" aria-hidden>mdi-web</v-icon>
                     <v-card-title primary-title>
                         <div>

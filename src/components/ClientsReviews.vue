@@ -1,26 +1,6 @@
 <template>
     <v-container grid-list-lg>
         <v-layout row wrap>
-            <!-- <v-flex xs12 sm6 md6 lg4 v-for="individuo in individuos" :key="individuo.id">
-                <v-card class="pa-3">
-                    <v-card-tex>
-                        <div class="title my-3"> 
-                            {{ individuo.nombre}}
-                        </div>
-                        <div class="title my-3"> 
-                            {{ individuo.apellido}}
-                        </div>
-                           
-                        <v-img :src="individuo.foto" class="thumbnail">
-                            
-                        </v-img>
-                        <div class="title my-3"> 
-                            {{ opiniones[individuo.id] }}
-                        </div>
-                    </v-card-tex>
-                    
-                </v-card>
-            </v-flex> -->
             <v-carousel
                 :continuous="true"
                 cycle
@@ -43,14 +23,14 @@
                         align="center"
                         justify="space-around"
                         >
-                        <div>
+                        <div align="center">
                             <img :src="individuo.foto" class="thumbnail">
                             <div class="title my-3"> 
                                 {{ individuo.nombre}} {{ individuo.apellido}}
                                 
-                            </div>
                         </div>
-                        <div class="title subtitle-1"> 
+                        </div>
+                        <div class="title subtitle-1 font-italic pb-6" align="center"> 
                                 {{ opiniones[individuo.id] }}
                         </div>
                     

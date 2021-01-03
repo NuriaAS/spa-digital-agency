@@ -5,8 +5,11 @@
     class="intro-container accent-3"
     style="max-height: 100vh"
   >
-    <v-layout justify-center align-center column pa-5>
-      <v-flex xs12 sm12 md12 class="ma-auto">
+    <v-layout justify-center column pa-5>
+      <div class="title my-3 text-left pl-3"> 
+                  Want to discuss a project? Send us a message               
+            </div>
+      <v-flex xs12 sm12 md12>
         <v-form v-model="valid">
           <v-container>
             <v-row class="flex-column">
@@ -72,12 +75,12 @@
     }
    @media screen and (min-width: 600px) {
         .layout.column > .flex {
-            width: 60% !important;
+            width: 100% !important;
         }
    }
    @media screen and (min-width: 900px) {
-        .layout.column > .flex {
+        /* .layout.column > .flex {
             width: 40% !important;
-        }
+        } */
    }
 </style>

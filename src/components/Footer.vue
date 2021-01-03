@@ -28,7 +28,7 @@
 
         </v-card-title>
   
-        <v-card-text class="py-2 white--text">
+        <v-card-text class="py-2 white--text text-left">
           {{ new Date().getFullYear() }}<strong>, Valencia</strong> — <strong>Miles Digital</strong>
         </v-card-text>
       </v-card>
