@@ -20,8 +20,7 @@
               <v-col cols="12" md="12">
                 <v-text-field
                   v-model="firstname"
-                  :rules="nameRules"
-                  :counter="10"
+                  :rules="[rules.required]"
                   label="First name"
                   required
                   filled
@@ -31,8 +30,7 @@
               <v-col cols="12" md="12">
                 <v-text-field
                   v-model="lastname"
-                  :rules="nameRules"
-                  :counter="10"
+                  :rules="[rules.required]"
                   label="Last name"
                   required
                   filled
@@ -42,7 +40,7 @@
               <v-col cols="12" md="12">
                 <v-text-field
                   v-model="email"
-                  :rules="emailRules"
+                  :rules="[rules.required, rules.email]"
                   label="E-mail"
                   required
                   filled
@@ -52,7 +50,8 @@
               <v-col cols="12" md="12">
                 <v-text-field
                   v-model="message"
-                  :rules="messageRules"
+                  :rules="[rules.required, rules.message, rules.counter]"
+                  :counter="100"
                   label="Message"
                   required
                   filled
@@ -79,6 +78,14 @@
           lastname: null,
           email: null,
           message: null,
+          rules: {
+            required: value => !!value || 'Required',
+            counter: value => value.length <= 100 || 'Max 100 characters',
+            email: value => {
+              const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+              return pattern.test(value) || 'Invalid e-mail.'
+            },
+          }
         }
       },
       methods: {
