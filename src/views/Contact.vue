@@ -7,7 +7,7 @@
                 <v-col class="myCol">
                     <ContactInfo></ContactInfo>
                 </v-col>
-                <v-col class="myCol">
+                <v-col class="myCol form">
                     <Form></Form>
                 </v-col>
                 
@@ -53,27 +53,10 @@
             margin-right: 10%;
             flex-direction: row;
         }
-   }
-    /* .container {
-        padding: 12px 0 0 0;
-        max-width: 100%;
-    }
-    .layout {
-        padding-top: 20%;
-        width: 100%;
-        text-align: center;
-        height: 100%;
-    }
-    @media screen and (min-width: 600px) {
-        .layout{
-            padding-top: 10%;   
+        .form {
+            max-width: 50%;
         }
    }
-   @media screen and (min-width: 900px) {
-        .layout{
-            padding-top: 8%;   
-        }
-   } */
     
   
     
