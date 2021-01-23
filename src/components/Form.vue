@@ -10,7 +10,7 @@
                   Want to discuss a project? Send us a message               
             </div>
       <v-flex xs12 sm12 md12>
-        <v-form v-model="valid" 
+        <v-form  
         ref="form"
         @submit="saveContactMessage"
         method="post"
@@ -57,7 +57,12 @@
                   filled
                 ></v-text-field>
               </v-col>
-              <v-btn class="mr-4" @click="saveContactMessage"> submit </v-btn>
+              <v-checkbox
+                label="Do you agree policy terms?"
+                v-model="checkbox"
+                
+              ></v-checkbox>
+              <v-btn class="mr-4" @click="saveContactMessage" :disabled="!validate"> submit </v-btn>
             </v-row>
           </v-container>
         </v-form>
@@ -78,13 +83,25 @@
           lastname: null,
           email: null,
           message: null,
+          checkbox: false,
+          pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
           rules: {
             required: value => !!value || 'Required',
             counter: value => value.length <= 100 || 'Max 100 characters',
             email: value => {
-              const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-              return pattern.test(value) || 'Invalid e-mail.'
+              return this.pattern.test(value) || 'Invalid e-mail.'
             },
+          }
+        }
+      },
+      computed: {
+        validate() {
+          const messageIsValid = this.message && this.message.length <= 100;
+          const emailIsValid = this.email && this.pattern.test(this.email);
+          if(this.lastname && this.firstname && emailIsValid && messageIsValid && this.checkbox) {
+            return true;
+          }else {
+            return false;
           }
         }
       },
