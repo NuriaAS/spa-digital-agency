@@ -65,7 +65,13 @@
             </v-row>
           </v-container>
         </v-form>
-        
+
+        <v-alert v-if="requestSuccess" type="success">
+          Message sent
+        </v-alert>
+        <v-alert v-else type="error">
+         Message Error
+        </v-alert>
         <p>Name is: {{ firstname }}</p>
         <pre>{{$data}}</pre>
       </v-flex>
@@ -84,6 +90,7 @@
           email: null,
           message: null,
           checkbox: false,
+          requestSuccess: false,    
           pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
           rules: {
             required: value => !!value || 'Required',
@@ -107,6 +114,7 @@
       },
       methods: {
         sendData () {
+          const self = this;
           const messagesRef = this.$firebaseDatabase.collection('message');
           messagesRef.add(
             {
@@ -117,6 +125,14 @@
               time: new Date(),
             },
           )
+          .then(function() {
+             self.requestSuccess = true
+          })
+          .catch(function(error) {
+              alert("Error writing document: ", error);
+              console.error(error)
+          });
+        },
         resetForm () {
           this.firstname = ''
           this.lastname = ''
