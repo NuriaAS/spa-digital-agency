@@ -59,19 +59,23 @@
               <v-checkbox
                 label="Do you agree policy terms?"
                 v-model="checkbox"
-                
               ></v-checkbox>
-              <v-btn class="mr-4" @click="submitHandler" :disabled="!validate"> submit </v-btn>
+              <v-progress-circular
+                indeterminate
+                color="primary" v-if="dataIsSent && !requestError && !requestSuccess"
+              ></v-progress-circular>
+                      <v-alert v-if="dataIsSent && requestSuccess" type="success">
+                Message sent
+              </v-alert>
+              <v-alert v-if="dataIsSent && requestError" type="error">
+              Message Error
+              </v-alert>
+              <v-btn v-else class="mr-4" @click="submitHandler" :disabled="!validate"> submit </v-btn>
             </v-row>
           </v-container>
         </v-form>
 
-        <v-alert v-if="requestSuccess" type="success">
-          Message sent
-        </v-alert>
-        <v-alert v-else type="error">
-         Message Error
-        </v-alert>
+
         <p>Name is: {{ firstname }}</p>
         <pre>{{$data}}</pre>
       </v-flex>
@@ -90,7 +94,9 @@
           email: null,
           message: null,
           checkbox: false,
-          requestSuccess: false,    
+          dataIsSent: false,
+          requestSuccess: false,  
+          requestError: false,
           pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
           rules: {
             required: value => !!value || 'Required',
@@ -114,6 +120,7 @@
       },
       methods: {
         sendData () {
+          this.dataIsSent = true;
           const self = this;
           const messagesRef = this.$firebaseDatabase.collection('message');
           messagesRef.add(
@@ -126,12 +133,14 @@
             },
           )
           .then(function() {
-             self.requestSuccess = true
+            self.requestSuccess = true
+            // self.dataIsSent = false;
           })
           .catch(function(error) {
-              alert("Error writing document: ", error);
+            // self.dataIsSent = false;
+            self.requestError = true;
               console.error(error)
-          });
+          })
         },
         resetForm () {
           this.firstname = ''
