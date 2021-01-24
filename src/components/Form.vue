@@ -62,20 +62,19 @@
               ></v-checkbox>
               <v-progress-circular
                 indeterminate
-                color="primary" v-if="dataIsSent && !requestError && !requestSuccess"
+                color="primary" v-if="dataIsSent"
               ></v-progress-circular>
-                      <v-alert v-if="dataIsSent && requestSuccess" type="success">
+              
+              <v-alert v-if="requestSuccess" type="success">
                 Message sent
               </v-alert>
-              <v-alert v-if="dataIsSent && requestError" type="error">
+              <v-alert v-if="requestError" type="error">
               Message Error
               </v-alert>
-              <v-btn v-else class="mr-4" @click="submitHandler" :disabled="!validate"> submit </v-btn>
+              <v-btn class="mr-4" @click="submitHandler" :disabled="!validate"> submit </v-btn>
             </v-row>
           </v-container>
         </v-form>
-
-
         <p>Name is: {{ firstname }}</p>
         <pre>{{$data}}</pre>
       </v-flex>
@@ -97,6 +96,7 @@
           dataIsSent: false,
           requestSuccess: false,  
           requestError: false,
+          submit: true,
           pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
           rules: {
             required: value => !!value || 'Required',
@@ -133,13 +133,13 @@
             },
           )
           .then(function() {
+            self.dataIsSent = false
             self.requestSuccess = true
-            // self.dataIsSent = false;
           })
           .catch(function(error) {
-            // self.dataIsSent = false;
+            self.dataIsSent = false
             self.requestError = true;
-              console.error(error)
+            console.error(error)
           })
         },
         resetForm () {
