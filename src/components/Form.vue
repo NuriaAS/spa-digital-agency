@@ -12,7 +12,6 @@
       <v-flex xs12 sm12 md12>
         <v-form  
         ref="form"
-        @submit="saveContactMessage"
         method="post"
         lazy-validation>
           <v-container>
@@ -62,7 +61,7 @@
                 v-model="checkbox"
                 
               ></v-checkbox>
-              <v-btn class="mr-4" @click="saveContactMessage" :disabled="!validate"> submit </v-btn>
+              <v-btn class="mr-4" @click="submitHandler" :disabled="!validate"> submit </v-btn>
             </v-row>
           </v-container>
         </v-form>
@@ -107,9 +106,8 @@
         }
       },
       methods: {
-        saveContactMessage: function (e) {
-          e.preventDefault()
-          const messagesRef = this.$firebaseDatabase.collection('message')
+        sendData () {
+          const messagesRef = this.$firebaseDatabase.collection('message');
           messagesRef.add(
             {
               firstname: this.firstname,
@@ -119,6 +117,7 @@
               time: new Date(),
             },
           )
+        resetForm () {
           this.firstname = ''
           this.lastname = ''
           this.email = ''
@@ -126,8 +125,16 @@
           this.checkbox = false
           this.submitted = true
           this.snackbar = false
-          
+
           this.$refs.form.reset()
+        },
+        submitHandler (event) {
+          event.preventDefault();
+          this.sendData();
+          // SET SPINNER
+          // STOP SPINNER
+          // DISPLAY MESSAGE
+          this.resetForm();
         },
       }
     }
