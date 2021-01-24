@@ -66,6 +66,7 @@
             </v-row>
           </v-container>
         </v-form>
+        
         <p>Name is: {{ firstname }}</p>
         <pre>{{$data}}</pre>
       </v-flex>
@@ -118,12 +119,15 @@
               time: new Date(),
             },
           )
-          this.firstname= ''
-          this.lastname= ''
+          this.firstname = ''
+          this.lastname = ''
           this.email = ''
           this.message = ''
+          this.checkbox = false
           this.submitted = true
           this.snackbar = false
+          
+          this.$refs.form.reset()
         },
       }
     }
