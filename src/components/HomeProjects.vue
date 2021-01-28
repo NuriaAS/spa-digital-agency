@@ -9,8 +9,8 @@
         >
           <v-row align="center" justify="center">
             <v-col class="text-center" cols="12">
-              <h1 class="display-1 font-weight-thin mb-4">Vuetify</h1>
-              <h4 class="subheading">Build your application today!</h4>
+              <h1 class="display-1 font-weight-bold mb-4">Kitchen Perfect</h1>
+              <h4 class="subheading">Web design and banding</h4>
             </v-col>
           </v-row>
         </v-parallax>
@@ -22,8 +22,8 @@
         >
           <v-row align="center" justify="center">
             <v-col class="text-center" cols="12">
-              <h1 class="display-1 font-weight-thin mb-4">Vuetify</h1>
-              <h4 class="subheading">Build your application today!</h4>
+              <h1 class="display-1 font-weight-bold mb-4">Serenity Corner</h1>
+              <h4 class="subheading">Web design and marketing</h4>
             </v-col>
           </v-row>
         </v-parallax>
@@ -38,8 +38,8 @@
         >
           <v-row align="center" justify="center">
             <v-col class="text-center" cols="12">
-              <h1 class="display-1 font-weight-thin mb-4">Vuetify</h1>
-              <h4 class="subheading">Build your application today!</h4>
+              <h1 class="display-1 font-weight-bold mb-4">Pharmaworld</h1>
+              <h4 class="subheading">Web App and marketing</h4>
             </v-col>
           </v-row>
         </v-parallax>
@@ -51,8 +51,8 @@
         >
           <v-row align="center" justify="center">
             <v-col class="text-center" cols="12">
-              <h1 class="display-1 font-weight-thin mb-4">Vuetify</h1>
-              <h4 class="subheading">Build your application today!</h4>
+              <h1 class="display-1 font-weight-bold mb-4">Dream House</h1>
+              <h4 class="subheading">Web App and branding</h4>
             </v-col>
           </v-row>
         </v-parallax>
@@ -67,8 +67,8 @@
         >
           <v-row align="center" justify="center">
             <v-col class="text-center" cols="12">
-              <h1 class="display-1 font-weight-thin mb-4">Vuetify</h1>
-              <h4 class="subheading">Build your application today!</h4>
+              <h1 class="display-1 font-weight-bold mb-4">Kulham Bags</h1>
+              <h4 class="subheading">E-commerce and marketing</h4>
             </v-col>
           </v-row>
         </v-parallax>
@@ -80,8 +80,8 @@
         >
           <v-row align="center" justify="center">
             <v-col class="text-center" cols="12">
-              <h1 class="display-1 font-weight-thin mb-4">Vuetify</h1>
-              <h4 class="subheading">Build your application today!</h4>
+              <h1 class="display-1 font-weight-bold mb-4">Wider Trade</h1>
+              <h4 class="subheading">Web design and branding</h4>
             </v-col>
           </v-row>
         </v-parallax>

@@ -11,7 +11,7 @@
 </template>
 
 <script>
-// @ is an alias to /src
+
 import HomeHero from '@/components/HomeHero.vue'
 import HomeIntro from '@/components/HomeIntro.vue'
 import HomeProjects from '@/components/HomeProjects.vue'

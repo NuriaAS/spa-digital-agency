@@ -6,10 +6,11 @@
                 
                  <v-row column>
                     <v-col class="mycol align-self-start">
-                        <p class="subtitle-1 text-left">441 Battersea Park Rd, Battersea,
+                        <p class="subtitle-1 text-left">45 Dagnall St, Battersea,
                             <br>
-                            London SW11 4LR, UK
+                            London SW11 5AU, UK
                         </p>
+
                         <p class="subtitle-1 text-left pb-6">
                             +442054337721
                             <br>
@@ -37,56 +38,9 @@
      iframe {
         width: 100%;
     }
-    /* .container {
-        padding: 12px 0 0 0;
-        max-width: 100%;
+    .container {
+        padding: 30px 0 0 0;
+        max-width: 90%;
     }
-    .layout {
-        padding-top: 20%;
-        width: 100%;
-        text-align: center;
-        height: 100%;
-    }
-    .row {
-            width: 90%;
-            flex-direction: column;
-            align-items: center;
-            margin: auto;
-        }
-        img {
-            width: 100%;
-        }
-       
-    @media screen and (min-width: 600px) {
-        .layout{
-            padding-top: 10%;   
-        }
-        .main-content-about {
-            width: 80%;
-        }
-        .row {
-            flex-direction: row;
-        }
-        .mycol {
-            width: 35%;
-        }
-        img {
-            width: 60%;
-        }
-        .col-big {
-            width: 100%;
-            height: auto;
-        }
-   }
-   @media screen and (min-width: 900px) {
-        .layout{
-            padding-top: 8%;   
-        }
-         .main-content-about {
-            min-width: 60%;
-        }
-   } */
-    
-  
-    
+     
 </style>

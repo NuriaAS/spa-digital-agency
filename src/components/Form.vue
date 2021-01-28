@@ -50,7 +50,7 @@
                 <v-text-field
                   v-model="message"
                   :rules="[rules.required, rules.message, rules.counter]"
-                  :counter="100"
+                  :counter="200"
                   label="Message"
                   required
                   filled
@@ -64,19 +64,19 @@
                 indeterminate
                 color="primary" v-if="dataIsSent"
               ></v-progress-circular>
-              
-              <v-alert v-if="requestSuccess" type="success">
-                Message sent
-              </v-alert>
-              <v-alert v-if="requestError" type="error">
-              Message Error
-              </v-alert>
-              <v-btn class="mr-4" @click="submitHandler" :disabled="!validate"> submit </v-btn>
+              <v-row class="button-alert">
+                <v-btn class="mr-4" @click="submitHandler" :disabled="!validate"> submit </v-btn>
+                <v-alert v-if="requestSuccess" type="success">
+                  Message sent
+                </v-alert>
+                <v-alert v-if="requestError" type="error">
+                Message Error
+                </v-alert>
+              </v-row>
             </v-row>
           </v-container>
         </v-form>
-        <p>Name is: {{ firstname }}</p>
-        <pre>{{$data}}</pre>
+        
       </v-flex>
     </v-layout>
   </v-container>
@@ -109,7 +109,7 @@
       },
       computed: {
         validate() {
-          const messageIsValid = this.message && this.message.length <= 100;
+          const messageIsValid = this.message && this.message.length <= 200;
           const emailIsValid = this.email && this.pattern.test(this.email);
           if(this.lastname && this.firstname && emailIsValid && messageIsValid && this.checkbox) {
             return true;
@@ -156,9 +156,6 @@
         submitHandler (event) {
           event.preventDefault();
           this.sendData();
-          // SET SPINNER
-          // STOP SPINNER
-          // DISPLAY MESSAGE
           this.resetForm();
         },
       }
@@ -169,14 +166,26 @@
     .layout.column > .flex {
             width: 100% !important;
     }
+    .button-alert {
+       padding-left: 12px !important;
+    padding-right: 12px !important;
+    justify-content: space-between;
+    }
+    .v-application .pa-5 {
+    padding: 30px !important;
+    }
+    .v-application .mr-4 {
+    margin-right: 0px !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    }
+    .col-12, .col-md-12 {
+    padding: 0px;
+    }
    @media screen and (min-width: 600px) {
         .layout.column > .flex {
             width: 100% !important;
         }
    }
-   @media screen and (min-width: 900px) {
-        /* .layout.column > .flex {
-            width: 40% !important;
-        } */
-   }
+  
 </style>

@@ -4,9 +4,10 @@
             <v-carousel
                 :continuous="true"
                 cycle
+                interval ="4000"
                 :show-arrows="false"
-                hide-delimiter-background
-                delimiter-icon="mdi-minus"
+                hide-delimiters
+                progress
                 height="300"
             >
                 <v-carousel-item
@@ -69,7 +70,6 @@
             getUsers() {
                 axios.get('https://randomuser.me/api/?results=5')
                 .then(response => {
-                    console.log(response)
                     this.individuos = response.data.results.map((individuo, index) => {
                         return {
                             nombre: individuo.name.first,
@@ -80,7 +80,6 @@
                     });
                 })
                 .catch(e=> console.log(e))
-                console.log("CACA")
             }
         }
     };
@@ -106,5 +105,6 @@
     }
    .theme--dark.v-btn.v-btn--icon {
     color: #363535;
-}
+    }
+
 </style>

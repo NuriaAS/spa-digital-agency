@@ -63,12 +63,5 @@ export default {
     .v-card__title {
         text-align: left;
     }
-    /* .headline {
-        text-align: center;
-    } */
-    .more-info-container {
-        
-       
-    }
-
+   
 </style>
