@@ -1,5 +1,5 @@
-# spa-hotel
-
+# spa-digital-agency
+A simple web page created with Vue.js, using Vuetify. It includes a form that send data to Firebase and consuming from Randomuser with axios
 ## Project setup
 ```
 npm install
@@ -22,3 +22,4 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
