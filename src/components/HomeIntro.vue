@@ -1,9 +1,9 @@
 <template>
   <v-container app fluid class="intro-container">
     <v-layout row wrap fill-height>
-      <v-flex xs12 sm12 md6 class="ma-auto intro-text">
+      <v-flex xs12 sm12 md8 class="ma-auto intro-text">
         
-        <div class="display-1 font-weight-bold text-left">
+        <div class="display-1 font-weight-bold text-center">
           Miles Digital is your best choice <br />to run your bussines online
         </div>
       
